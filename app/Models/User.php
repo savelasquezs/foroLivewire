@@ -44,4 +44,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function avatar()
+    {
+        return "https://rickandmortyapi.com/api/character/avatar/$this->id.jpeg";
+    }
 }
