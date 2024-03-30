@@ -20,9 +20,10 @@ class ThreadController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Thread  $thread)
     {
-        //
+        $categories = Category::all();
+        return view('thread/create', compact('categories', 'thread'));
     }
 
     /**
@@ -30,7 +31,8 @@ class ThreadController extends Controller
      */
     public function store(StoreThreadRequest $request)
     {
-        //
+        auth()->user()->threads()->create($request->validated());
+        return redirect('/');
     }
 
     /**
@@ -48,7 +50,6 @@ class ThreadController extends Controller
     {
         $categories = Category::all();
         return view('thread/edit', compact('categories', 'thread'));
-
     }
 
     /**
@@ -56,7 +57,8 @@ class ThreadController extends Controller
      */
     public function update(UpdateThreadRequest $request, Thread $thread)
     {
-        $thread->update($request->all());
+
+        $thread->update($request->validated());
         return redirect("thread/$thread->id");
     }
 

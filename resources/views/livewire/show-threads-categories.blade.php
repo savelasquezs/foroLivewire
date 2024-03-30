@@ -1,7 +1,7 @@
 
 
     <div class="w-64">
-        <a href="" class="block w-full py-4 mb-10 bg-gradient-to-r from-blue-600 to-blue-700 hover: to-blue-700 text-white/90 text-bold text-xs text-center rounded-md">Preguntar</a>
+        <a href="{{route('threads.create')}}" class="block w-full py-4 mb-10 bg-gradient-to-r from-blue-600 to-blue-700 hover: to-blue-700 text-white/90 text-bold text-xs text-center rounded-md">Preguntar</a>
         <ul>
             @forelse ($categories as $cat)
             <li>
