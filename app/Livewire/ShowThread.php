@@ -33,7 +33,6 @@ class ShowThread extends Component
 
 
         $this->body = "";
-
     }
     public function render()
     {
@@ -43,6 +42,7 @@ class ShowThread extends Component
             [
                 "replies" => $this->thread
                     ->replies()
+                    ->with('user', 'replies', 'replies.replies', 'replies.user')
                     ->whereNull("reply_id")
                     ->get()
             ]
