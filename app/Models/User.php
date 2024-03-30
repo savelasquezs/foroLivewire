@@ -49,4 +49,9 @@ class User extends Authenticatable
     {
         return "https://rickandmortyapi.com/api/character/avatar/$this->id.jpeg";
     }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class);
+    }
 }

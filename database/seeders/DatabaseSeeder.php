@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)
             ->hasThreads(20)
             ->create();
-        Reply::factory(200)->create();
+        Reply::factory(400)->create();
 
 
     }

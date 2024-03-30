@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Thread;
 use App\Http\Requests\StoreThreadRequest;
 use App\Http\Requests\UpdateThreadRequest;
@@ -45,7 +46,9 @@ class ThreadController extends Controller
      */
     public function edit(Thread $thread)
     {
-        //
+        $categories = Category::all();
+        return view('thread/edit', compact('categories', 'thread'));
+
     }
 
     /**
@@ -53,7 +56,8 @@ class ThreadController extends Controller
      */
     public function update(UpdateThreadRequest $request, Thread $thread)
     {
-        //
+        $thread->update($request->all());
+        return redirect("thread/$thread->id");
     }
 
     /**

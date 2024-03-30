@@ -36,6 +36,7 @@ new class extends Component
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white/60 bg-slate-800 hover:text-white  transition ease-in-out duration-150">
+                            <img src="{{auth()->user()->avatar()}}" alt="" width="30" class="rounded-full mr-2">
                             <div x-data="{{ json_encode(['name' => auth()->user()->name]) }}" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
 
                             <div class="ms-1">

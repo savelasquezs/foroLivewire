@@ -21,7 +21,9 @@
                             <span class="text-white/90">{{$thread->created_at->diffForHumans()}}</span>
                         </span>
                         <span class="text-slate-700">{{$thread->replies_count}} Comentario{{$thread->replies_count!=1?"s":""}} |
-                        <a href="" class="hover:text-white/90">Editar</a>
+                            @can("update", $thread)
+                        <a href="{{route('threads.edit', $thread)}}" class="hover:text-white/90">Editar</a>
+                        @endcan
                         </span>
                     </p>
                 </div>
